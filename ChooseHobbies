@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+        <title>JS practice</title>
+    </head>
+    
+    <body>
+        <form>
+          Please choose your hobbies:<br>
+          <input type="checkbox" name="hobby" id="hobby1">  music
+          <input type="checkbox" name="hobby" id="hobby2">  hiking
+          <input type="checkbox" name="hobby" id="hobby3">  swimming
+          <input type="checkbox" name="hobby" id="hobby4">  reading
+          <input type="checkbox" name="hobby" id="hobby5">  football
+          <input type="checkbox" name="hobby" id="hobby6">  running <br>
+          <input type="button" value = "checkall" onclick = "checkall();">
+          <input type="button" value = "none" onclick = "clearall();">
+          <p>Please input the ID number of hobby you want (1-6):</p>
+          <input id="wb" name="wb" type="text" >
+          <input name="ok" type="button" value="yes" onclick = "checkone();">
+        </form>
+        <script type="text/javascript">
+        //check all of the boxes
+        function checkall(){
+            var hobby = document.getElementsByTagName("input");
+            for(var i=0; i<hobby.length; i++){
+                hobby[i].checked = true;
+            }
+         
+        //cancel all of the boxes   
+        }
+        function clearall(){
+            var hobby = document.getElementsByName("hobby");
+            for(var i=0; i<hobby.length; i++){
+                hobby[i].checked = false;
+            }           
+        }
+        
+        //check one box by users
+        function checkone(){
+            clearall();
+            var hobby = document.getElementsByName("hobby");
+            var j=document.getElementById("wb").value;
+            for(var i=0;i<j.length;i++){
+                if(j.charAt(i)>6 || j.charAt(i)<1){
+                    alert("Please input again!");
+                    document.getElementById("wb").value="";
+                }
+            }
+                for(var n=0;n<j.length;n++){
+                   
+                        hobby[(j.charAt(n))-1].checked=true; 
+                }
+            
+        }
+        
+        </script>
+    </body>
+</html>
